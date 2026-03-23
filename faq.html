@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQs — WidgetCo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <span class="logo">⚙️ WidgetCo</span>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="faq.html" class="active">FAQs</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- FAQ Section -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What exactly is a widget?
+            <span class="arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              A widget is our flagship precision-engineered component designed for a wide range of applications. Each widget is crafted from high-grade materials and undergoes rigorous quality testing before it leaves our facility.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What colors and sizes are available?
+            <span class="arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              We currently offer widgets in Cobalt Blue, Ruby Red, Emerald Green, and Midnight Black. Sizes range from Small (2 cm) to Large (10 cm). Custom sizes are available for bulk orders — contact us for details.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How long does shipping take?
+            <span class="arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              All orders ship within 24 hours. Standard delivery takes 3–5 business days within the US. Expedited (1–2 day) shipping is available at checkout. International shipping typically takes 7–14 business days.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Is there free shipping?
+            <span class="arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Yes! Orders over $50 qualify for free standard shipping within the continental United States. No coupon code needed — the discount is applied automatically at checkout.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What is your return policy?
+            <span class="arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              We offer a 30-day, no-questions-asked return policy. If you're not satisfied, ship the widget back in its original packaging and we'll issue a full refund within 5 business days of receiving it.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Do you offer bulk or wholesale pricing?
+            <span class="arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Absolutely. For orders of 50 units or more, we offer tiered wholesale pricing. Head over to our <a href="contact.html">Contact page</a> and select "Wholesale / Bulk" as the subject to get a custom quote.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How do I track my order?
+            <span class="arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Once your order ships, you'll receive an email with a tracking number and a link to monitor your package in real time. You can also reply to that email if you have any questions.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Can I modify or cancel my order after placing it?
+            <span class="arrow">▼</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Orders can be modified or cancelled within 1 hour of being placed. After that, the order enters our fulfillment pipeline. Please <a href="contact.html">contact us</a> as soon as possible if you need to make a change.
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="text-center mt-3">Still have questions? <a href="contact.html">Contact our team</a> — we're happy to help.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="contact.html">Contact</a>
+        <a href="faq.html">FAQs</a>
+      </div>
+      <p>&copy; 2026 WidgetCo. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      const answer = item.querySelector('.faq-answer');
+      const isOpen = item.classList.contains('open');
+
+      // Close all
+      document.querySelectorAll('.faq-item').forEach(function(el) {
+        el.classList.remove('open');
+        el.querySelector('.faq-answer').style.maxHeight = null;
+      });
+
+      // Open clicked if it was closed
+      if (!isOpen) {
+        item.classList.add('open');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    }
+  </script>
+</body>
+</html>

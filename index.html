@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WidgetCo — Order Your Widget</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <span class="logo">⚙️ WidgetCo</span>
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
+      <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="faq.html">FAQs</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>The Widget You've Been Waiting For</h1>
+      <p>Precision-engineered, endlessly customizable, and ready to ship. Order your perfect widget today.</p>
+      <a href="#order" class="btn btn-primary">Order Now</a>
+      <a href="faq.html" class="btn btn-outline" style="margin-left:.5rem;">Learn More</a>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Why Choose Our Widget?</h2>
+      <div class="cards">
+        <div class="card">
+          <div class="icon">🔧</div>
+          <h3>Built to Last</h3>
+          <p>Premium materials and rigorous quality control ensure your widget stands the test of time.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🎨</div>
+          <h3>Fully Customizable</h3>
+          <p>Choose from multiple sizes, colors, and finishes to make it uniquely yours.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🚀</div>
+          <h3>Fast Shipping</h3>
+          <p>Orders ship within 24 hours. Free delivery on orders over $50.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Order Section -->
+  <section class="order-section" id="order">
+    <div class="container">
+      <h2 class="section-title">Order Your Widget</h2>
+      <div class="order-grid">
+        <div class="widget-preview">⚙️</div>
+        <div class="order-form">
+          <h2>Configure &amp; Order</h2>
+          <p>Fill in the details below and we'll get your widget on its way.</p>
+          <form id="orderForm" onsubmit="handleOrder(event)">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" required placeholder="Jane Smith">
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required placeholder="jane@example.com">
+            </div>
+            <div class="form-group">
+              <label for="color">Widget Color</label>
+              <select id="color" name="color">
+                <option value="blue">Cobalt Blue</option>
+                <option value="red">Ruby Red</option>
+                <option value="green">Emerald Green</option>
+                <option value="black">Midnight Black</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="qty">Quantity</label>
+              <input type="number" id="qty" name="qty" min="1" max="100" value="1" required>
+            </div>
+            <button type="submit" class="btn btn-submit">Place Order</button>
+            <div class="success-msg" id="orderSuccess">🎉 Order placed! Check your email for confirmation.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="contact.html">Contact</a>
+        <a href="faq.html">FAQs</a>
+      </div>
+      <p>&copy; 2026 WidgetCo. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function handleOrder(e) {
+      e.preventDefault();
+      document.getElementById('orderSuccess').style.display = 'block';
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
