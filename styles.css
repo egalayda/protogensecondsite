@@ -88,13 +88,142 @@ nav a.active {
 /* ===== Hero ===== */
 .hero {
   text-align: center;
-  padding: 4rem 1.5rem;
-  background: linear-gradient(135deg, var(--primary), #7c3aed);
+  padding: 4rem 1.5rem 6rem;
+  background: linear-gradient(180deg, #5b21b6 0%, #7c3aed 60%, #2d1a6e 100%);
   color: #fff;
+  position: relative;
+  overflow: hidden;
+  cursor: none;
 }
 
-.hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
-.hero p  { font-size: 1.15rem; max-width: 600px; margin: 0 auto 2rem; opacity: 0.9; }
+.hero h1 { font-size: 2.5rem; margin-bottom: 1rem; position: relative; z-index: 2; }
+.hero p  { font-size: 1.15rem; max-width: 600px; margin: 0 auto 2rem; opacity: 0.9; position: relative; z-index: 2; }
+
+/* Mario question-block style buttons */
+.hero .btn {
+  position: relative;
+  z-index: 2;
+  transition: background 0.2s, transform 0.08s;
+}
+.hero .btn.mario-hit {
+  animation: blockBump 0.3s ease;
+}
+@keyframes blockBump {
+  0%   { transform: translateY(0); }
+  30%  { transform: translateY(-12px); }
+  50%  { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+
+/* Pixel skyline */
+.mario-skyline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Ground */
+.mario-ground {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 32px;
+  background:
+    repeating-linear-gradient(90deg, #8B5E3C 0px, #8B5E3C 16px, #A0522D 16px, #A0522D 32px);
+  z-index: 3;
+}
+.mario-ground::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: #228B22;
+}
+
+/* Brick / pipe decorations */
+.mario-pipe {
+  position: absolute;
+  bottom: 32px;
+  width: 48px;
+  z-index: 2;
+}
+.mario-pipe-top {
+  width: 56px;
+  height: 16px;
+  background: #0a0;
+  border: 2px solid #060;
+  margin-left: -4px;
+  border-radius: 3px 3px 0 0;
+}
+.mario-pipe-body {
+  width: 48px;
+  height: 40px;
+  background: #0c0;
+  border-left: 2px solid #060;
+  border-right: 2px solid #060;
+}
+
+.mario-hill {
+  position: absolute;
+  bottom: 32px;
+  border-radius: 50% 50% 0 0;
+  z-index: 1;
+}
+
+.mario-cloud {
+  position: absolute;
+  z-index: 1;
+  font-size: 2rem;
+  opacity: 0.6;
+  animation: cloudDrift 20s linear infinite;
+  pointer-events: none;
+}
+@keyframes cloudDrift {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-150px); }
+}
+
+/* Mario sprite */
+#mario {
+  position: absolute;
+  bottom: 40px;
+  z-index: 10;
+  width: 32px;
+  height: 40px;
+  pointer-events: none;
+  transition: left 0.05s linear;
+  image-rendering: pixelated;
+}
+#mario.jumping {
+  animation: marioJump 0.5s ease;
+}
+@keyframes marioJump {
+  0%   { transform: translateY(0); }
+  35%  { transform: translateY(-120px); }
+  50%  { transform: translateY(-130px); }
+  100% { transform: translateY(0); }
+}
+
+/* Coin that pops out */
+.coin-pop {
+  position: absolute;
+  z-index: 20;
+  font-size: 1.3rem;
+  pointer-events: none;
+  animation: coinFly 0.6s ease forwards;
+}
+@keyframes coinFly {
+  0%   { opacity: 1; transform: translateY(0) scale(1); }
+  60%  { opacity: 1; transform: translateY(-60px) scale(1.2); }
+  100% { opacity: 0; transform: translateY(-80px) scale(0.5); }
+}
 
 /* ===== Buttons ===== */
 .btn {

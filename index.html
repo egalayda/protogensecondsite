@@ -22,13 +22,99 @@
   </header>
 
   <!-- Hero -->
-  <section class="hero">
-    <div class="container">
-      <h1>The Widget You've Been Waiting For - Is Here</h1>
+  <section class="hero" id="heroSection">
+    <div class="container" style="position:relative;z-index:2;">
+      <h1>The Widget You've Been Waiting For - Is Here Now</h1>
       <p>Precision-engineered, endlessly customizable, and ready to ship. Order your perfect widget today.</p>
-      <a href="#order" class="btn btn-primary">Order Now</a>
-      <a href="faq.html" class="btn btn-outline" style="margin-left:.5rem;">Learn More</a>
+      <a href="#order" class="btn btn-primary mario-btn" id="btnOrder">? Order Now</a>
+      <a href="faq.html" class="btn btn-outline mario-btn" id="btnLearn" style="margin-left:.5rem;">? Learn More</a>
     </div>
+
+    <!-- Skyline elements -->
+    <div class="mario-skyline">
+      <!-- Clouds -->
+      <span class="mario-cloud" style="top:20px;left:10%;">☁️</span>
+      <span class="mario-cloud" style="top:8px;left:40%;animation-delay:-7s;">☁️</span>
+      <span class="mario-cloud" style="top:30px;left:70%;animation-delay:-13s;">☁️</span>
+
+      <!-- Hills -->
+      <div class="mario-hill" style="left:5%;width:160px;height:50px;background:#2d8a2d;"></div>
+      <div class="mario-hill" style="left:55%;width:200px;height:60px;background:#267326;"></div>
+      <div class="mario-hill" style="left:80%;width:120px;height:35px;background:#2d8a2d;"></div>
+
+      <!-- Pipes -->
+      <div class="mario-pipe" style="left:20%;">
+        <div class="mario-pipe-top"></div>
+        <div class="mario-pipe-body"></div>
+      </div>
+      <div class="mario-pipe" style="left:72%;">
+        <div class="mario-pipe-top"></div>
+        <div class="mario-pipe-body" style="height:55px;"></div>
+      </div>
+
+      <!-- Ground -->
+      <div class="mario-ground"></div>
+    </div>
+
+    <!-- Mario sprite (pixel art via inline SVG) -->
+    <svg id="mario" viewBox="0 0 16 20" xmlns="http://www.w3.org/2000/svg" style="left:-100px;">
+      <!-- Hat -->
+      <rect x="3" y="0" width="9" height="1" fill="#e00"/>
+      <rect x="2" y="1" width="12" height="1" fill="#e00"/>
+      <rect x="2" y="2" width="12" height="1" fill="#e00"/>
+      <!-- Face -->
+      <rect x="2" y="3" width="3" height="1" fill="#8B5E3C"/>
+      <rect x="5" y="3" width="2" height="1" fill="#fdcba0"/>
+      <rect x="7" y="3" width="1" height="1" fill="#8B5E3C"/>
+      <rect x="8" y="3" width="3" height="1" fill="#fdcba0"/>
+      <rect x="1" y="4" width="1" height="1" fill="#8B5E3C"/>
+      <rect x="2" y="4" width="1" height="1" fill="#fdcba0"/>
+      <rect x="3" y="4" width="1" height="1" fill="#8B5E3C"/>
+      <rect x="4" y="4" width="3" height="1" fill="#fdcba0"/>
+      <rect x="7" y="4" width="1" height="1" fill="#8B5E3C"/>
+      <rect x="8" y="4" width="3" height="1" fill="#fdcba0"/>
+      <rect x="11" y="4" width="1" height="1" fill="#fdcba0"/>
+      <rect x="1" y="5" width="1" height="1" fill="#8B5E3C"/>
+      <rect x="2" y="5" width="1" height="1" fill="#fdcba0"/>
+      <rect x="3" y="5" width="2" height="1" fill="#8B5E3C"/>
+      <rect x="5" y="5" width="3" height="1" fill="#fdcba0"/>
+      <rect x="8" y="5" width="3" height="1" fill="#8B5E3C"/>
+      <rect x="11" y="5" width="1" height="1" fill="#fdcba0"/>
+      <rect x="3" y="6" width="7" height="1" fill="#fdcba0"/>
+      <!-- Shirt -->
+      <rect x="2" y="7" width="3" height="1" fill="#e00"/>
+      <rect x="5" y="7" width="2" height="1" fill="#00c"/>
+      <rect x="7" y="7" width="3" height="1" fill="#e00"/>
+      <rect x="1" y="8" width="2" height="1" fill="#e00"/>
+      <rect x="3" y="8" width="1" height="1" fill="#00c"/>
+      <rect x="4" y="8" width="1" height="1" fill="#e00"/>
+      <rect x="5" y="8" width="2" height="1" fill="#00c"/>
+      <rect x="7" y="8" width="1" height="1" fill="#e00"/>
+      <rect x="8" y="8" width="1" height="1" fill="#00c"/>
+      <rect x="9" y="8" width="2" height="1" fill="#e00"/>
+      <rect x="1" y="9" width="1" height="1" fill="#e00"/>
+      <rect x="2" y="9" width="3" height="1" fill="#00c"/>
+      <rect x="5" y="9" width="2" height="1" fill="#e00"/>
+      <rect x="7" y="9" width="3" height="1" fill="#00c"/>
+      <rect x="10" y="9" width="1" height="1" fill="#e00"/>
+      <!-- Overalls -->
+      <rect x="2" y="10" width="2" height="1" fill="#00c"/>
+      <rect x="4" y="10" width="4" height="1" fill="#00c"/>
+      <rect x="8" y="10" width="2" height="1" fill="#00c"/>
+      <rect x="2" y="11" width="8" height="1" fill="#00c"/>
+      <rect x="3" y="12" width="3" height="1" fill="#00c"/>
+      <rect x="7" y="12" width="3" height="1" fill="#00c"/>
+      <!-- Overalls bottom / legs -->
+      <rect x="2" y="13" width="3" height="1" fill="#00c"/>
+      <rect x="8" y="13" width="3" height="1" fill="#00c"/>
+      <rect x="2" y="14" width="3" height="1" fill="#00c"/>
+      <rect x="8" y="14" width="3" height="1" fill="#00c"/>
+      <!-- Shoes -->
+      <rect x="1" y="15" width="3" height="1" fill="#8B4513"/>
+      <rect x="9" y="15" width="3" height="1" fill="#8B4513"/>
+      <rect x="0" y="16" width="4" height="1" fill="#8B4513"/>
+      <rect x="9" y="16" width="4" height="1" fill="#8B4513"/>
+    </svg>
   </section>
 
   <!-- Features -->
@@ -112,6 +198,82 @@
       document.getElementById('orderSuccess').style.display = 'block';
       e.target.reset();
     }
+
+    // === Mario Logic ===
+    (function() {
+      const hero = document.getElementById('heroSection');
+      const mario = document.getElementById('mario');
+      const buttons = document.querySelectorAll('.mario-btn');
+      let marioJumping = false;
+
+      // Follow cursor horizontally, stick to ground
+      hero.addEventListener('mousemove', function(e) {
+        const rect = hero.getBoundingClientRect();
+        const x = e.clientX - rect.left - 16; // center the 32px sprite
+        mario.style.left = Math.max(0, Math.min(x, rect.width - 32)) + 'px';
+      });
+
+      // Hide mario when cursor leaves hero
+      hero.addEventListener('mouseleave', function() {
+        mario.style.left = '-100px';
+      });
+
+      // Mario jump + question-block hit on button click
+      buttons.forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+          if (btn.getAttribute('href') === '#order') {
+            // let default scroll happen
+          } else {
+            e.preventDefault(); // prevent nav so user can see the animation
+            var href = btn.getAttribute('href');
+            setTimeout(function() { window.location.href = href; }, 700);
+          }
+          triggerMarioJump(btn);
+        });
+      });
+
+      function triggerMarioJump(btn) {
+        if (marioJumping) return;
+        marioJumping = true;
+
+        // Position mario under the clicked button
+        var heroRect = hero.getBoundingClientRect();
+        var btnRect = btn.getBoundingClientRect();
+        var centerX = btnRect.left - heroRect.left + btnRect.width / 2 - 16;
+        mario.style.left = centerX + 'px';
+        mario.style.transition = 'left 0.15s ease';
+
+        // Jump!
+        setTimeout(function() {
+          mario.classList.add('jumping');
+        }, 50);
+
+        // Hit the button at peak of jump
+        setTimeout(function() {
+          btn.classList.add('mario-hit');
+          spawnCoin(btn, heroRect);
+        }, 200);
+
+        // Clean up
+        setTimeout(function() {
+          mario.classList.remove('jumping');
+          btn.classList.remove('mario-hit');
+          mario.style.transition = 'left 0.05s linear';
+          marioJumping = false;
+        }, 600);
+      }
+
+      function spawnCoin(btn, heroRect) {
+        var coin = document.createElement('span');
+        coin.className = 'coin-pop';
+        coin.textContent = '🪙';
+        var btnRect = btn.getBoundingClientRect();
+        coin.style.left = (btnRect.left - heroRect.left + btnRect.width / 2 - 10) + 'px';
+        coin.style.top = (btnRect.top - heroRect.top - 20) + 'px';
+        hero.appendChild(coin);
+        setTimeout(function() { coin.remove(); }, 700);
+      }
+    })();
   </script>
 </body>
 </html>
