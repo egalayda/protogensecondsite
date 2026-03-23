@@ -26,8 +26,8 @@
     <div class="container" style="position:relative;z-index:2;">
       <h1>The Widget You've Been Waiting For - Is Here Now</h1>
       <p>Precision-engineered, endlessly customizable, and ready to ship. Order your perfect widget today.</p>
-      <a href="#order" class="btn btn-primary mario-btn" id="btnOrder">? Order Now</a>
-      <a href="faq.html" class="btn btn-outline mario-btn" id="btnLearn" style="margin-left:.5rem;">? Learn More</a>
+      <a href="#order" class="btn btn-primary mario-btn" id="btnOrder">Order Now</a>
+      <a href="faq.html" class="btn btn-outline mario-btn" id="btnLearn" style="margin-left:.5rem;">Learn More</a>
     </div>
 
     <!-- Skyline elements -->
@@ -57,7 +57,7 @@
     </div>
 
     <!-- Mario sprite (pixel art via inline SVG) -->
-    <svg id="mario" viewBox="0 0 16 20" xmlns="http://www.w3.org/2000/svg" style="left:-100px;">
+    <svg id="mario" viewBox="0 0 16 20" xmlns="http://www.w3.org/2000/svg">
       <!-- Hat -->
       <rect x="3" y="0" width="9" height="1" fill="#e00"/>
       <rect x="2" y="1" width="12" height="1" fill="#e00"/>
@@ -206,29 +206,28 @@
       const buttons = document.querySelectorAll('.mario-btn');
       let marioJumping = false;
 
-      // Follow cursor horizontally, stick to ground
-      hero.addEventListener('mousemove', function(e) {
-        const rect = hero.getBoundingClientRect();
-        const x = e.clientX - rect.left - 16; // center the 32px sprite
+      // Track cursor globally, show mario in hero aligned to ground
+      var lastX = 0;
+      document.addEventListener('mousemove', function(e) {
+        lastX = e.clientX;
+        var rect = hero.getBoundingClientRect();
+        var x = e.clientX - rect.left - 16;
         mario.style.left = Math.max(0, Math.min(x, rect.width - 32)) + 'px';
-      });
-
-      // Hide mario when cursor leaves hero
-      hero.addEventListener('mouseleave', function() {
-        mario.style.left = '-100px';
       });
 
       // Mario jump + question-block hit on button click
       buttons.forEach(function(btn) {
         btn.addEventListener('click', function(e) {
-          if (btn.getAttribute('href') === '#order') {
-            // let default scroll happen
-          } else {
-            e.preventDefault(); // prevent nav so user can see the animation
-            var href = btn.getAttribute('href');
-            setTimeout(function() { window.location.href = href; }, 700);
-          }
+          e.preventDefault();
           triggerMarioJump(btn);
+          var href = btn.getAttribute('href');
+          setTimeout(function() {
+            if (href.startsWith('#')) {
+              document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+            } else {
+              window.location.href = href;
+            }
+          }, 700);
         });
       });
 
